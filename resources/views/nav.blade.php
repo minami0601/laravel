@@ -12,16 +12,16 @@
 
     @guest {{--この行を追加--}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('login') }}">ログイン</a> 
+      <a class="nav-link" href="{{ route('login') }}">ログイン</a>
     </li>
     @endguest {{--この行を追加--}}
-      
+
     @auth {{--この行を追加--}}
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a> 
+      <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
     </li>
     @endauth {{--この行を追加--}}
-    
+
     @auth {{--この行を追加--}}
     <!-- Dropdown -->
     <li class="nav-item dropdown">
@@ -31,7 +31,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
-                onclick="location.href=''">
+          onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
           マイページ
         </button>
         <div class="dropdown-divider"></div>
