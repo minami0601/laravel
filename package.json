@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@johmun/vue-tags-input": "^2.1.0",
-        "axios": "^0.19",
+        "axios": "^0.19.2",
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
@@ -20,5 +20,8 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "vue-axios": "^3.2.4"
     }
 }
