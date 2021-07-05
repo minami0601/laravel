@@ -18,7 +18,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::all()->sortByDesc('created_at');
+        $articles = Article::all()->sortByDesc('created_at')->load(['user', 'likes', 'tags']);
         return view('articles.index', ['articles' => $articles]);
     }
 
@@ -31,12 +31,12 @@ class ArticleController extends Controller
 
         return view('articles.create', [
             'allTagNames' => $allTagNames,
-        ]);   
+        ]);
     }
 
 
     public function store(ArticleRequest $request, Article $article){
-        $article->fill($request->all()); 
+        $article->fill($request->all());
         $article->user_id = $request->user()->id;
         $article->save();
 
@@ -59,7 +59,7 @@ class ArticleController extends Controller
             'article' => $article,
             'tagNames' => $tagNames,
             'allTagNames' => $allTagNames,
-        ]);    
+        ]);
     }
 
 
@@ -85,7 +85,7 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         return view('articles.show', ['article' => $article]);
-    }   
+    }
 
     public function like(Request $request, Article $article)
     {
@@ -108,7 +108,7 @@ class ArticleController extends Controller
         ];
     }
 
-    
+
 }
 
 
